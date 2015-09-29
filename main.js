@@ -41,5 +41,26 @@ function makeDude() {
 	$("#dudeTable").find("tbody").prepend("<tr><td>" + currentDude.name +  "</td><td>" + currentDude.ID +  "</td><td>" +currentDude.property+  "</td><td>" + currentDude.speed.toFixed(2) + "</td></tr>");
 
 }
+//console.log prints to console
+//use selector to output text
+function makeTable() {
+	//for (i = 0; i < Dudes.length; i++ ) {
+	//	console.log(Dudes[i].name, "\t", Dudes[i].ID, "\t", Dudes[i].property, "\t", Dudes[i].speed);
+	//}
+	$("#dudeTable2").find("tbody").empty();
+
+	for (i = 0; i < Dudes.length; i++ ) {
+	$("#dudeTable2").find("tbody").prepend("<tr><td>" + Dudes[i].name + "</td><td>" + Dudes[i].ID + "</td><td>" + Dudes[i].property + "</td><td>" + Dudes[i].speed.toFixed(2) + "</td></tr>");
+	}
+}
+
+function makeTable2() {
+	$("#dudeTable3").find("tbody").empty();
+
+	for (i = 0; i < Dudes.length; i++ ) {
+	$("#dudeTable3").find("tbody").prepend("<tr><td>" + Dudes[i].name + "</td><td>" + Dudes[i].ID + "</td><td>" + Dudes[i].property + "</td><td>" + Dudes[i].speed.toFixed(2) + "</td></tr>");
+	}
+}
+
 
 	

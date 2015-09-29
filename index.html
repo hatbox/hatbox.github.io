@@ -1,25 +1,30 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
-    <meta name="generator"
-    content="HTML Tidy for HTML5 (experimental) for Windows https://github.com/w3c/tidy-html5/tree/c63cc39" />
-    <title>my shit</title>
-    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" />
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/chance/0.5.6/chance.js"></script>
-    <script type="text/javascript" src="main.js"></script>
+	<meta charset="utf-8" />
+	<title>my shit</title>
+	<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" />
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/chance/0.5.6/chance.js"></script>
+	<script type="text/javascript" src="main.js"></script>
   </head>
+  
   <body>
     <div class="container">
-    <h1>welcome to debug world</h1>This is how you use Bootstrap. Cool.
+	
+    <h1>welcome to debug world</h1>
+	This is how you use Bootstrap. Cool.
+	
     <h2>learning &quot;2&quot; count and use jQuery</h2>
     <div class="btn-group" role="group" aria-label="...">
       <button type="button" class="btn btn-lg btn-primary" onclick="fartClick(1)">fartClick</button>
     </div>
     <div>The number of farts is 
     <span id="farts">0</span></div>
-    <h2>learning classes</h2>
+    
+	<h2>learning classes</h2>
     <div class="alert alert-warning" role="alert">
     <strong>Did you know?</strong> Javascript doesn't have an import/include feature. I guess you just source more files in the
     HTML. I just wanted a rnorm function... <strike>Roll your own Ziggurat?</strike> Implemented Box-Muller from an old Processing project.</div>
@@ -30,14 +35,15 @@
           <th width="10%">Poke</th>
           <th width="5%">ID</th>
           <th>Nature</th>
-          <th>Gumption (µ = 5, &#963; = 1)</th>
+          <th>Gumption (&#x035E;x = 5, &#963; = 1)</th>
         </tr>
       </thead>
 	  <tbody> </tbody>
     </table>
-    <h3>refining the jQ</h3>Ideally we want to refresh the list of dudes whenever, not populate one list as we go.
 	
-    <button type="button" class="btn btn-lg btn-success" onclick="refreshDudes()">refresh the Dudes list</button>
+	
+    <h3>refining the jQ</h3>Ideally we want to refresh the list of dudes whenever, not populate one list as we go.
+	    <button type="button" class="btn btn-lg btn-success" onclick="makeTable()">refresh the Dudes list</button>
     <table id="dudeTable2" class="table table-hover">
       <thead>
         <tr>
@@ -49,5 +55,35 @@
       </thead>
 	  <tbody> </tbody>
     </table>
+	
+	<h2>Using Bootstrap for tabbed navigation</h2>
+	<nav>
+		<ul class="nav nav-tabs" role="tablist">
+			<li role="presentation" class="active"><a href="#first" aria-controls="first" role="tab" data-toggle="tab">Front</a></li>
+			<li role="presentation"><a href="#mons" aria-controls="mons" role="tab" data-toggle="tab" onclick="makeTable2()">Look at them mons</a></li>
+			<li role="presentation"><a href="#third" aria-controls="third" role="tab" data-toggle="tab">Tanes</a></li>
+			<li role="presentation"><a href="#fourth" aria-controls="fourth" role="tab" data-toggle="tab">Plapes</a></li>
+		</ul>
+	<nav>
+	
+	<div class="tab-content">
+		<div role="tabpanel" class="tab-pane fade in active" id="first">This is the first tab</div>
+		<div role="tabpanel" class="tab-pane fade" id="mons">
+		    <table id="dudeTable3" class="table table-hover">
+      <thead>
+        <tr>
+          <th width="10%">Name</th>
+          <th width="5%">ID</th>
+          <th>Constant</th>
+          <th>Speed</th>
+        </tr>
+      </thead>
+	  <tbody> </tbody>
+    </table>
+		</div>
+		<div role="tabpanel" class="tab-pane fade" id="third">Blimps and Moats</div>
+		<div role="tabpanel" class="tab-pane fade" id="fourth">Moats and Blimps</div>
+	</div>
+	
   </body>
 </html>
