@@ -13,7 +13,7 @@ function almostNormal() {
 
 var farts = 0;
 function fartClick(n){
-    farts = farts + n;
+	farts = farts + n;
 	console.log(farts);
 	$("#farts").html(farts);
 }
@@ -26,7 +26,8 @@ function Dude() {
 	this.name = chance.name();
 	this.property = "poopy";
 	this.ID=ID;
-	this.speed=speedStdev*almostNormal()+speedMean;
+	this.rawSpeed=speedStdev*almostNormal()+speedMean;
+	this.speed=this.rawSpeed.toFixed(2) 
 	ID++;
 }
 
@@ -36,9 +37,12 @@ var Dudes = [];
 function makeDude() {
 	var currentDude = new Dude();
 	Dudes.push(currentDude);
-	console.log("Name:\t" + currentDude.name + "\nProperty:\t" + currentDude.property + "\nID:\t" + currentDude.ID);
+	console.log("Name:\t" + currentDude.name + "\nProperty:\t" + currentDude.property +
+		"\nID:\t" + currentDude.ID);
 	
-	$("#dudeTable").find("tbody").prepend("<tr><td>" + currentDude.name +  "</td><td>" + currentDude.ID +  "</td><td>" +currentDude.property+  "</td><td>" + currentDude.speed.toFixed(2) + "</td></tr>");
+	$("#dudeTable").find("tbody").prepend("<tr><td>" + currentDude.name + 
+		"</td><td>" + currentDude.ID +  "</td><td>" + currentDude.property +
+		"</td><td>" + currentDude.speed + "</td></tr>");
 
 }
 //console.log prints to console
@@ -50,7 +54,8 @@ function makeTable() {
 	$("#dudeTable2").find("tbody").empty();
 
 	for (i = 0; i < Dudes.length; i++ ) {
-	$("#dudeTable2").find("tbody").prepend("<tr><td>" + Dudes[i].name + "</td><td>" + Dudes[i].ID + "</td><td>" + Dudes[i].property + "</td><td>" + Dudes[i].speed.toFixed(2) + "</td></tr>");
+		$("#dudeTable2").find("tbody").prepend("<tr><td>" + Dudes[i].name + "</td><td>" + Dudes[i].ID +
+			"</td><td>" + Dudes[i].property + "</td><td>" + Dudes[i].speed+ "</td></tr>");
 	}
 }
 
@@ -58,9 +63,16 @@ function makeTable2() {
 	$("#dudeTable3").find("tbody").empty();
 
 	for (i = 0; i < Dudes.length; i++ ) {
-	$("#dudeTable3").find("tbody").prepend("<tr><td>" + Dudes[i].name + "</td><td>" + Dudes[i].ID + "</td><td>" + Dudes[i].property + "</td><td>" + Dudes[i].speed.toFixed(2) + "</td></tr>");
+		$("#dudeTable3").find("tbody").prepend("<tr><td>" + Dudes[i].name + "</td><td>" + Dudes[i].ID +
+			"</td><td>" + Dudes[i].property + "</td><td>" + Dudes[i].speed + "</td></tr>");
 	}
 }
 
+function populateDDs() {
+		$("#DD1").empty();
 
-	
+	for (i = 0; i < Dudes.length; i++ ) {
+		$("#DD1").prepend("<li>" + Dudes[i].name + "\t" + Dudes[i].speed + "</li>");
+		console.log("<li>" + Dudes[i].name + "\t" + Dudes[i].speed + "</li>");
+	}
+}
