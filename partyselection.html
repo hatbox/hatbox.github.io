@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>party selection test</title>
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <style>
+  #main, #party {
+    border: 1px solid #eee;
+    width: 142px;
+    min-height: 20px;
+    list-style-type: none;
+    margin: 0;
+    padding: 5px 0 0 0;
+    float: left;
+    margin-right: 10px;
+	cursor: default !important;
+  }
+  
+ button {
+  color: #ffffff;
+  border:0;
+  font-size: 20px;
+  background: #3498db;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+button:hover {
+  background: #3cb0fd;
+  text-decoration: none;
+}
+  </style>
+  <script>
+  $(function() {
+    $( "#main, #party" ).sortable({
+      connectWith: ".connected",
+	  receive: function(event,ui) {
+	   if ($(".curParty").children().length > 5) {
+	   $(ui.sender).sortable('cancel');
+	   }
+	   }
+	   }).disableSelection();
+  
+  
+  
+  
+  });
+  var teamIDs;
+  var totalIDs;
+  
+  doIt = function(){
+  teamIDs = $( ".curTeam" ).sortable( "toArray", {attribute: 'data-id'} );
+  partyIDs = $( ".curParty" ).sortable( "toArray", {attribute: 'data-id'} );
+  console.log(teamIDs);
+  console.log(partyIDs);
+  }
+  </script>
+</head>
+<body>
+
+<h1>All Pokes</h1>
+<div id="main" class="connected curTeam">
+
+  <div data-id="1">Artichoke</div>
+  <div data-id="2">Blastoise</div>
+  <div data-id="3">Cumin</div>
+  <div data-id="4">Duck</div>
+  <div data-id="5">Egg</div>
+  <div data-id="6">Foobar</div>
+  <div data-id="7">Goopist</div>
+  <div data-id="8">Hungry</div>
+  </div>
+ 
+ <h1>Party (5 max)</h1>
+<div id="party" class="connected curParty">
+
+  <div data-id="9">Iota</div>
+  <div data-id="10">Jaundiced</div>
+</div>
+ 
+ <button class="btn" onclick="doIt()">fart</button>
+ 
+</body>
+</html>
